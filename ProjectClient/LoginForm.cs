@@ -25,7 +25,7 @@ namespace ProjectClient
 
         private void SignInBtn_Click(object sender, EventArgs e)
         {
-            NetHandler.SendMessage("In" + NickBox.Text + "#" + PassBox.Text);
+            NetHandler.SendMessage("In" + UsernameTextBox.Text + "#" + PassBox.Text);
         }
 
         private void SignUpBtn_Click(object sender, EventArgs e)
@@ -55,6 +55,18 @@ namespace ProjectClient
                 signUpForm.Hide();
             }
         }
+        public void ShowMail()
+        {
+            SendMailButton.Visible = true;
+            SmtpTextBox.Visible = true;
+        }
+        public void ShowCaptcha(string CaptchaTest)
+        {
+            CaptchaLabel.Show();
+            CaptchaTextBox.Show();
+            CaptchaLabel.Text = CaptchaTest;
+            SendCaptchaButton.Show();
+        }
         /// <summary>
         /// Disables all the controls.
         /// </summary>
@@ -79,7 +91,72 @@ namespace ProjectClient
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Congarts! You Found Easter egg#1!");
+        }
 
+        private void UsernameTextBox_MouseEnter(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "Enter username:")
+            {
+                textBox.Clear();
+                textBox.ForeColor = Color.Black;
+                textBox.ReadOnly = false;
+            }
+        }
+
+        private void UsernameTextBox_MouseLeave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Enter username:";
+                textBox.ForeColor = Color.Gray;
+                textBox.ReadOnly = true;
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            UsernameTextBox.ReadOnly = true;
+            
+        }
+
+        private void UsernameTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            UsernameTextBox.ReadOnly = false;
+        }
+
+        private void SendMailButton_Click(object sender, EventArgs e)
+        {
+            NetHandler.SendMessage("CodeIn" + SmtpTextBox.Text);
+        }
+
+        private void SmtpTextBox_MouseEnter(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "Enter mail:")
+            {
+                textBox.Clear();
+                textBox.ForeColor = Color.Black;
+                textBox.ReadOnly = false;
+            }
+        }
+
+        private void SmtpTextBox_MouseLeave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Enter mail:";
+                textBox.ForeColor = Color.Gray;
+                textBox.ReadOnly = true;    
+            }
+        }
+
+        private void SendCaptchaButton_Click(object sender, EventArgs e)
+        {
+            NetHandler.SendMessage("CaptchaIn:" + CaptchaTextBox.Text);
         }
     }
 }

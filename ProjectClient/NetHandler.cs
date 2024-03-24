@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +29,8 @@ namespace ProjectClient
 
         public static string SymmetricKey;
 
+        private static string OverlapString;
+
         public static bool Connect(string ip)
         {
             Client = new TcpClient();
@@ -35,7 +40,7 @@ namespace ProjectClient
             }
             catch
             {
-                MessageBox.Show("There wasn't a server in this address...\nPlease Try Again", "Server Connection Attempt");
+                MessageBox.Show("The server is closed.\nPlease Try Again", "Server Connection Attempt");
             }
 
             Rsa = new RsaHandler();
@@ -139,8 +144,10 @@ namespace ProjectClient
                 {
                     ns = Client.GetStream();
                 }
+                
                 if (!message.StartsWith("public key:"))
                 {
+                   
                     byte[] Key = Encoding.UTF8.GetBytes(SymmetricKey);
                     byte[] IV = new byte[16];
                     message = AES.Encrypt(message, Key, IV);
@@ -148,13 +155,22 @@ namespace ProjectClient
                 }
 
                 // Send data to the client
-                byte[] bytesToSend = System.Text.Encoding.ASCII.GetBytes(message);
-                ns.Write(bytesToSend, 0, bytesToSend.Length);
+                byte[] bytesToSend = System.Text.Encoding.ASCII.GetBytes(message + "!");
+                int chunkSize = 60000; // Chunk size in bytes
+                int bytesSent = 0;
+                while (bytesSent < bytesToSend.Length)
+                {
+                    int remainingBytes = bytesToSend.Length - bytesSent;
+                    int currentChunkSize = Math.Min(remainingBytes, chunkSize);
+                    ns.Write(bytesToSend, bytesSent, currentChunkSize);
+                    bytesSent += currentChunkSize;
+                }
+
                 ns.Flush();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
         /// <summary>
@@ -182,6 +198,19 @@ namespace ProjectClient
                 else // client still connected
                 {
                     string messageReceived = System.Text.Encoding.ASCII.GetString(data, 0, bytesRead);
+
+                    if (messageReceived.EndsWith("!"))
+                    {
+                        messageReceived = messageReceived.Remove(messageReceived.Length - 1);
+                        messageReceived = OverlapString + messageReceived;
+                        
+                        OverlapString = "";
+                    }
+                    else
+                    {
+                        OverlapString += messageReceived;
+                    }
+
                     // if the client is sending its nickname
                     if (messageReceived.StartsWith("*"))
                     {
@@ -195,16 +224,16 @@ namespace ProjectClient
                         string DecryptedMessageDetails = Rsa.Decrypt(messageReceived, PrivateKey);
                         SymmetricKey = DecryptedMessageDetails;
                     }
-                    else
+                    else if (OverlapString == "")
                     {
                         byte[] Key = Encoding.UTF8.GetBytes(SymmetricKey);
                         byte[] IV = new byte[16];
                         messageReceived = AES.Decrypt(messageReceived, Key, IV);
 
                         if (messageReceived == "In The Database") //If login valid.
-                        {
-                            //CreateAndShowType();
-                            CreateAndShowHome();
+                        {                 
+                            Task.Run(() => { MessageBox.Show("Check your mail for the code.");  });
+                            LoginInstance.Invoke((Action)(() => LoginInstance.ShowMail()));
                         }
                         if (messageReceived == "Not In The Database") //If login not valid.
                         {
@@ -222,14 +251,21 @@ namespace ProjectClient
                         }
                         if (messageReceived == "CheckUserInvalid")
                         {
-                            MessageBox.Show("Invalid username. please try different one.");
+                            Task.Run(() => { MessageBox.Show("Invalid username. please try different one."); });     
                         }
+                        
                         if (messageReceived == "Signed Up") //If sign up valid.
                         {
                             //CreateAndShow();
                             CreateAndShowHome();
                         }
-                        if(messageReceived == "Valid Code") //If smtp code valid.
+                        if (messageReceived == "Signed In") //If login try valid and paseed the tests.
+                        {
+                            //CreateAndShow();
+                            CreateAndShowHome();
+                        }
+                        
+                        if (messageReceived == "Valid Code") //If smtp code valid.
                         {
                             ShowPass();
                         }
@@ -237,6 +273,7 @@ namespace ProjectClient
                         {
                             UnlockSettings();
                         }
+
                         if(messageReceived == "ban") //If tried to hack.
                         {
                             LockLogin();
@@ -245,15 +282,28 @@ namespace ProjectClient
                         {
                             UnlockLogin();
                         }
-                        if(messageReceived.StartsWith("capt:"))
+
+                        if(messageReceived.StartsWith("captUp:"))
                         {
-                            string capthca = messageReceived.Remove(0, 5);
+                            string capthca = messageReceived.Remove(0, 7);
                             SignUpInstance.Invoke((Action)(() => SignUpInstance.ShowCaptcha(capthca)));
                         }
-                        if(messageReceived.StartsWith("UserType:"))
+                        if (messageReceived.StartsWith("captIn:"))
                         {
-                            messageReceived = messageReceived.Remove(0, 9);
+                            string capthca = messageReceived.Remove(0, 7);
+                            LoginInstance.Invoke((Action)(() => LoginInstance.ShowCaptcha(capthca)));
+                        }
 
+
+                        if (messageReceived.StartsWith("UserType:"))
+                        {
+                            messageReceived = messageReceived.Remove(0, 9);                        
+                            if(messageReceived.StartsWith("Manager"))
+                            {
+                                SettingsInstance.Invoke((Action)(() => SettingsInstance.ManagerPanelVisible()));
+                                SendMessage("GetGenres");
+                            }
+                                
                         }
                         if(messageReceived.StartsWith("UserName:"))
                         {
@@ -263,12 +313,36 @@ namespace ProjectClient
                         }
                         if(messageReceived.StartsWith("lb:"))
                         {
-                            HomeInstance.Invoke ((Action)(() => HomeInstance.InsertLibraries(messageReceived.Remove(0, 3))));
+                            HomeInstance.Invoke((Action)(() => HomeInstance.InsertLibraries(messageReceived.Remove(0, 3))));
+                            SendMessage("GetBooks:");
                         }
-                        if(messageReceived.StartsWith("BooksToPreview"))
+                        if(messageReceived.StartsWith("Genres:"))
                         {
-                            string[] bookDetails = messageReceived.Remove(0, 14).Split(',');
-                            HomeInstance.Invoke((Action)(() => HomeInstance.setBook(bookDetails[0], bookDetails[1], bookDetails[2], bookDetails[3])));
+                            SettingsInstance.Invoke((Action) ((() => SettingsInstance.insertGenres(messageReceived.Remove(0,7)))));
+                        }
+                        if(messageReceived.StartsWith("genresForHome:"))
+                        {
+                            string Genres = messageReceived.Remove(0, 14);
+                            HomeInstance.Invoke((Action)((() => HomeInstance.InsertGenres(Genres))));
+                        }
+                        if(messageReceived.StartsWith("BooksToPreview:"))
+                        {
+                            messageReceived = messageReceived.Remove(0, 15);
+                            HomeInstance.Invoke((Action)((() => HomeInstance.ResetBooks())));
+                            string[] AllBooks = messageReceived.Split('@');
+                            for (int i = 0; i < AllBooks.Length; i++)
+                            {
+                                if(messageReceived != "None")
+                                {
+                                    string[] BookData = AllBooks[i].Split('$');
+                                    BookDetails bookDetails = new BookDetails(BookData[0], BookData[1], BookData[2], BookData[3], BookData[4], BookData[5]);
+                                    HomeInstance.Invoke((Action)(() => HomeInstance.setBook(BookData[0], BookData[1], BookData[2], BookData[3], BookData[4], BookData[5])));
+                                }
+                            }
+
+                            HomeInstance.pageMax = AllBooks.Length/6;
+
+                            SendMessage("getGenresForHome");
                         }
                         
                     }
@@ -284,6 +358,6 @@ namespace ProjectClient
                 MessageBox.Show(ex.ToString());
             }
         }
-        
+
     }
 }

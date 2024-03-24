@@ -35,7 +35,7 @@ namespace ProjectClient
         {
             if(CodeTxtBox.Text != null)
             {
-                NetHandler.SendMessage("Code"+CodeTxtBox.Text);
+                NetHandler.SendMessage("CodeUp"+CodeTxtBox.Text);
             }
                 
             
@@ -68,13 +68,18 @@ namespace ProjectClient
         {
             if(CaptchaTxtBox.Text != null)
             {
-                NetHandler.SendMessage("Captcha:" + CaptchaTxtBox.Text);
+                NetHandler.SendMessage("CaptchaUp:" + CaptchaTxtBox.Text);
             }
         }
 
         private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             PassTxtBox.PasswordChar = CheckBoxShowPassword.Checked ? '\0' : '•';
+        }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -121,7 +121,7 @@
   <data name="SendCodeBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
+        vwAADr8BOAVTJAAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
         1j/lgkpTBwAN9YJYgIwvvgBZRj2fhf5nBgbVFUyLwJh6PpMqveiHxQIkTCWfAQ05jN0CFAz2GdmWSZac
         t8ZiKA5Mgc+AGjdgNxQXhqRGkiyTKL6iBUzOf7AbiA+T6DOXvptzw2fd+Y+Mw2be+a9UfRmL4Wi49OIz
         mYorKlCjcINX7z7Zf/369T86rlr3ELvBaFii9GIh1CjcgBKfSJRdeipTcRa/T8BxUkZ+nBCVaYEuIS11
@@ -132,7 +132,7 @@
   <data name="SendCaptchaBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
+        vwAADr8BOAVTJAAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
         1j/lgkpTBwAN9YJYgIwvvgBZRj2fhf5nBgbVFUyLwJh6PpMqveiHxQIkTCWfAQ05jN0CFAz2GdmWSZac
         t8ZiKA5Mgc+AGjdgNxQXhqRGkiyTKL6iBUzOf7AbiA+T6DOXvptzw2fd+Y+Mw2be+a9UfRmL4Wi49OIz
         mYorKlCjcINX7z7Zf/369T86rlr3ELvBaFii9GIh1CjcgBKfSJRdeipTcRa/T8BxUkZ+nBCVaYEuIS11
@@ -144,10 +144,9 @@
     <value>17, 17</value>
   </metadata>
   <data name="CapthcaQstLbl.ToolTip" xml:space="preserve">
-    <value>This is a Captcha Test, To test if you are a human.
-The following text will be a mix of capital letters and numbers.
-You will need to wruite in the text box below the answer. 
-The answer will be the sentence in the following prompt, in 
-capital letters. click the send button to submit your answer.</value>
+    <value>You will be presented with a mix of capital letters and numbers in the following text.
+In the text box below, type the sentence provided in the prompt, but in CAPITAL LETTERS.
+Click the "Send" button to submit your answer.
+If you need a different text, click the "Send" button again.</value>
   </data>
 </root>

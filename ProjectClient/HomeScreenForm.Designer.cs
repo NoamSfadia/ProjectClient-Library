@@ -31,138 +31,220 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreenForm));
             this.DateLbl = new System.Windows.Forms.Label();
             this.UsernameGreetLbl = new System.Windows.Forms.Label();
-            this.LibrariesComboBox = new System.Windows.Forms.ComboBox();
-            this.SettingsButton = new System.Windows.Forms.Button();
+            this.FilterGenreComboBox = new System.Windows.Forms.ComboBox();
+            this.SearchByFilterButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bookPreviewControl2 = new ProjectClient.BookPreviewControl();
-            this.bookPreviewControl3 = new ProjectClient.BookPreviewControl();
-            this.bookPreviewControl4 = new ProjectClient.BookPreviewControl();
-            this.bookPreviewControl5 = new ProjectClient.BookPreviewControl();
-            this.bookPreviewControl6 = new ProjectClient.BookPreviewControl();
-            this.bookPreviewControl1 = new ProjectClient.BookPreviewControl();
-            this.panel1.SuspendLayout();
+            this.PageNumberLabel = new System.Windows.Forms.Label();
+            this.SearchBar = new System.Windows.Forms.TextBox();
+            this.ButtonForSeacrh = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.NextButtonPage = new System.Windows.Forms.PictureBox();
+            this.PreviousButtonPage = new System.Windows.Forms.PictureBox();
+            this.RefreshButton = new System.Windows.Forms.PictureBox();
+            this.SettingsLaunchPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.NextButtonPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviousButtonPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsLaunchPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // DateLbl
             // 
             this.DateLbl.AutoSize = true;
-            this.DateLbl.Font = new System.Drawing.Font("Bernard MT Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DateLbl.Location = new System.Drawing.Point(784, 13);
+            this.DateLbl.Location = new System.Drawing.Point(24, 34);
+            this.DateLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DateLbl.Name = "DateLbl";
-            this.DateLbl.Size = new System.Drawing.Size(0, 28);
+            this.DateLbl.Size = new System.Drawing.Size(0, 15);
             this.DateLbl.TabIndex = 0;
             // 
             // UsernameGreetLbl
             // 
             this.UsernameGreetLbl.AutoSize = true;
-            this.UsernameGreetLbl.Font = new System.Drawing.Font("Bernard MT Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameGreetLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameGreetLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UsernameGreetLbl.Location = new System.Drawing.Point(22, 13);
-            this.UsernameGreetLbl.MaximumSize = new System.Drawing.Size(200, 0);
+            this.UsernameGreetLbl.Location = new System.Drawing.Point(16, 9);
+            this.UsernameGreetLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameGreetLbl.MaximumSize = new System.Drawing.Size(150, 0);
             this.UsernameGreetLbl.Name = "UsernameGreetLbl";
-            this.UsernameGreetLbl.Size = new System.Drawing.Size(51, 28);
+            this.UsernameGreetLbl.Size = new System.Drawing.Size(49, 24);
             this.UsernameGreetLbl.TabIndex = 1;
             this.UsernameGreetLbl.Text = "Hey,";
             // 
-            // LibrariesComboBox
+            // FilterGenreComboBox
             // 
-            this.LibrariesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.LibrariesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.LibrariesComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LibrariesComboBox.FormattingEnabled = true;
-            this.LibrariesComboBox.Location = new System.Drawing.Point(306, 17);
-            this.LibrariesComboBox.Name = "LibrariesComboBox";
-            this.LibrariesComboBox.Size = new System.Drawing.Size(312, 24);
-            this.LibrariesComboBox.TabIndex = 2;
+            this.FilterGenreComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.FilterGenreComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.FilterGenreComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FilterGenreComboBox.FormattingEnabled = true;
+            this.FilterGenreComboBox.Location = new System.Drawing.Point(497, 19);
+            this.FilterGenreComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FilterGenreComboBox.Name = "FilterGenreComboBox";
+            this.FilterGenreComboBox.Size = new System.Drawing.Size(130, 21);
+            this.FilterGenreComboBox.TabIndex = 2;
             // 
-            // SettingsButton
+            // SearchByFilterButton
             // 
-            this.SettingsButton.BackColor = System.Drawing.Color.Transparent;
-            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-            this.SettingsButton.Location = new System.Drawing.Point(986, 463);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(80, 80);
-            this.SettingsButton.TabIndex = 3;
-            this.SettingsButton.UseVisualStyleBackColor = false;
-            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.SearchByFilterButton.BackColor = System.Drawing.Color.Lime;
+            this.SearchByFilterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchByFilterButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.SearchByFilterButton.FlatAppearance.BorderSize = 3;
+            this.SearchByFilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchByFilterButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SearchByFilterButton.Location = new System.Drawing.Point(632, 12);
+            this.SearchByFilterButton.Name = "SearchByFilterButton";
+            this.SearchByFilterButton.Size = new System.Drawing.Size(32, 32);
+            this.SearchByFilterButton.TabIndex = 4;
+            this.SearchByFilterButton.UseVisualStyleBackColor = false;
+            this.SearchByFilterButton.Click += new System.EventHandler(this.SearchByFilterButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(494, -1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 18);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bookPreviewControl1);
-            this.panel1.Controls.Add(this.bookPreviewControl6);
-            this.panel1.Controls.Add(this.bookPreviewControl5);
-            this.panel1.Controls.Add(this.bookPreviewControl4);
-            this.panel1.Controls.Add(this.bookPreviewControl3);
-            this.panel1.Controls.Add(this.bookPreviewControl2);
-            this.panel1.Location = new System.Drawing.Point(27, 77);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(20, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 350);
-            this.panel1.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(744, 268);
+            this.panel1.TabIndex = 9;
             // 
-            // bookPreviewControl2
+            // PageNumberLabel
             // 
-            this.bookPreviewControl2.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl2.Location = new System.Drawing.Point(163, 1);
-            this.bookPreviewControl2.Name = "bookPreviewControl2";
-            this.bookPreviewControl2.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl2.TabIndex = 0;
+            this.PageNumberLabel.AutoSize = true;
+            this.PageNumberLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PageNumberLabel.Location = new System.Drawing.Point(372, 343);
+            this.PageNumberLabel.Name = "PageNumberLabel";
+            this.PageNumberLabel.Size = new System.Drawing.Size(0, 35);
+            this.PageNumberLabel.TabIndex = 10;
+            this.PageNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bookPreviewControl3
+            // SearchBar
             // 
-            this.bookPreviewControl3.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl3.Location = new System.Drawing.Point(329, 0);
-            this.bookPreviewControl3.Name = "bookPreviewControl3";
-            this.bookPreviewControl3.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl3.TabIndex = 1;
+            this.SearchBar.Location = new System.Drawing.Point(204, 19);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(216, 20);
+            this.SearchBar.TabIndex = 15;
             // 
-            // bookPreviewControl4
+            // ButtonForSeacrh
             // 
-            this.bookPreviewControl4.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl4.Location = new System.Drawing.Point(495, 1);
-            this.bookPreviewControl4.Name = "bookPreviewControl4";
-            this.bookPreviewControl4.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl4.TabIndex = 2;
+            this.ButtonForSeacrh.Location = new System.Drawing.Point(426, 17);
+            this.ButtonForSeacrh.Name = "ButtonForSeacrh";
+            this.ButtonForSeacrh.Size = new System.Drawing.Size(23, 23);
+            this.ButtonForSeacrh.TabIndex = 16;
+            this.ButtonForSeacrh.UseVisualStyleBackColor = true;
+            this.ButtonForSeacrh.Click += new System.EventHandler(this.ButtonForSeacrh_Click);
             // 
-            // bookPreviewControl5
+            // button1
             // 
-            this.bookPreviewControl5.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl5.Location = new System.Drawing.Point(661, 0);
-            this.bookPreviewControl5.Name = "bookPreviewControl5";
-            this.bookPreviewControl5.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl5.TabIndex = 3;
+            this.button1.Location = new System.Drawing.Point(426, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // bookPreviewControl6
+            // SearchButton
             // 
-            this.bookPreviewControl6.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl6.Location = new System.Drawing.Point(827, 0);
-            this.bookPreviewControl6.Name = "bookPreviewControl6";
-            this.bookPreviewControl6.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl6.TabIndex = 4;
+            this.SearchButton.Location = new System.Drawing.Point(426, 17);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(23, 23);
+            this.SearchButton.TabIndex = 16;
+            this.SearchButton.Text = "button1";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bookPreviewControl1
+            // NextButtonPage
             // 
-            this.bookPreviewControl1.BackColor = System.Drawing.Color.White;
-            this.bookPreviewControl1.Location = new System.Drawing.Point(-3, 1);
-            this.bookPreviewControl1.Name = "bookPreviewControl1";
-            this.bookPreviewControl1.Size = new System.Drawing.Size(160, 349);
-            this.bookPreviewControl1.TabIndex = 5;
+            this.NextButtonPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NextButtonPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NextButtonPage.Image = ((System.Drawing.Image)(resources.GetObject("NextButtonPage.Image")));
+            this.NextButtonPage.Location = new System.Drawing.Point(400, 343);
+            this.NextButtonPage.Name = "NextButtonPage";
+            this.NextButtonPage.Size = new System.Drawing.Size(32, 32);
+            this.NextButtonPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.NextButtonPage.TabIndex = 14;
+            this.NextButtonPage.TabStop = false;
+            this.NextButtonPage.Click += new System.EventHandler(this.NextButtonPage_Click);
+            // 
+            // PreviousButtonPage
+            // 
+            this.PreviousButtonPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PreviousButtonPage.Image = ((System.Drawing.Image)(resources.GetObject("PreviousButtonPage.Image")));
+            this.PreviousButtonPage.Location = new System.Drawing.Point(334, 343);
+            this.PreviousButtonPage.Name = "PreviousButtonPage";
+            this.PreviousButtonPage.Size = new System.Drawing.Size(32, 32);
+            this.PreviousButtonPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PreviousButtonPage.TabIndex = 13;
+            this.PreviousButtonPage.TabStop = false;
+            this.PreviousButtonPage.Click += new System.EventHandler(this.PreviousButtonPage_Click);
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.Image = global::ProjectClient.Properties.Resources._204_2048084_reload_refresh_icon_ios1;
+            this.RefreshButton.Location = new System.Drawing.Point(716, 11);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(32, 32);
+            this.RefreshButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.RefreshButton.TabIndex = 8;
+            this.RefreshButton.TabStop = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
+            // SettingsLaunchPictureBox
+            // 
+            this.SettingsLaunchPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsLaunchPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("SettingsLaunchPictureBox.Image")));
+            this.SettingsLaunchPictureBox.Location = new System.Drawing.Point(754, 11);
+            this.SettingsLaunchPictureBox.Name = "SettingsLaunchPictureBox";
+            this.SettingsLaunchPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.SettingsLaunchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SettingsLaunchPictureBox.TabIndex = 7;
+            this.SettingsLaunchPictureBox.TabStop = false;
+            this.SettingsLaunchPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // HomeScreenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1062, 543);
+            this.ClientSize = new System.Drawing.Size(796, 397);
+            this.Controls.Add(this.ButtonForSeacrh);
+            this.Controls.Add(this.SearchBar);
+            this.Controls.Add(this.NextButtonPage);
+            this.Controls.Add(this.PreviousButtonPage);
+            this.Controls.Add(this.PageNumberLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.SettingsButton);
-            this.Controls.Add(this.LibrariesComboBox);
+            this.Controls.Add(this.RefreshButton);
+            this.Controls.Add(this.SettingsLaunchPictureBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SearchByFilterButton);
+            this.Controls.Add(this.FilterGenreComboBox);
             this.Controls.Add(this.UsernameGreetLbl);
             this.Controls.Add(this.DateLbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HomeScreenForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.HomeScreenForm_Load);
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NextButtonPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviousButtonPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsLaunchPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,14 +254,18 @@
 
         private System.Windows.Forms.Label DateLbl;
         private System.Windows.Forms.Label UsernameGreetLbl;
-        private System.Windows.Forms.ComboBox LibrariesComboBox;
-        private System.Windows.Forms.Button SettingsButton;
+        private System.Windows.Forms.ComboBox FilterGenreComboBox;
+        private System.Windows.Forms.Button SearchByFilterButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox SettingsLaunchPictureBox;
         private System.Windows.Forms.Panel panel1;
-        private BookPreviewControl bookPreviewControl2;
-        private BookPreviewControl bookPreviewControl1;
-        private BookPreviewControl bookPreviewControl6;
-        private BookPreviewControl bookPreviewControl5;
-        private BookPreviewControl bookPreviewControl4;
-        private BookPreviewControl bookPreviewControl3;
+        private System.Windows.Forms.Label PageNumberLabel;
+        private System.Windows.Forms.PictureBox PreviousButtonPage;
+        private System.Windows.Forms.PictureBox NextButtonPage;
+        private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.Button ButtonForSeacrh;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.PictureBox RefreshButton;
     }
 }
