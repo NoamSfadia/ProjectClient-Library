@@ -106,7 +106,7 @@ namespace ProjectClient
                 //set defualt values
                 bookPreviewControls[i].isUsed=false;
             }
-            pageNumber = 0;
+            
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
@@ -149,15 +149,19 @@ namespace ProjectClient
         private void NextButtonPage_Click(object sender, EventArgs e)
         {
             ResetBooks();
-            if (pageNumber < pageMax - 1)
+            if (pageNumber <= pageMax - 1)
             {
                 pageNumber++;
                 PageNumberLabel.Text = pageNumber.ToString();
 
                 for (int i = pageNumber * 6; i < pageNumber * 6 + 6; i++)
                 {
-                    BookDetails book = AllBooks[i];
-                    setBook(book.BookName, book.Author, book.Genre, book.Rate, book.Summary, book.Image);
+                    if (i < AllBooks.Count)
+                    {
+                        BookDetails book = AllBooks[i];
+                        setBook(book.BookName, book.Author, book.Genre, book.Rate, book.Summary, book.Image);
+                    }
+                    
                 }
             }
         }
@@ -165,7 +169,7 @@ namespace ProjectClient
         private void PreviousButtonPage_Click(object sender, EventArgs e)
         {
             ResetBooks();
-            if (pageNumber >= 0)
+            if (pageNumber > 0)
             {
                 pageNumber--;
                 PageNumberLabel.Text = pageNumber.ToString();
@@ -187,6 +191,11 @@ namespace ProjectClient
         {
             string SearchQuery = SearchBar.Text;
             NetHandler.SendMessage("SearchQuery:" + SearchQuery);
+        }
+
+        private void HomeScreenForm_Leave(object sender, EventArgs e)
+        {
+            NetHandler.Disconnect();
         }
     }
 

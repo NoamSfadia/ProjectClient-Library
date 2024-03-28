@@ -133,17 +133,19 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.Location = new System.Drawing.Point(204, 19);
+            this.SearchBar.Location = new System.Drawing.Point(204, 17);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(216, 20);
             this.SearchBar.TabIndex = 15;
             // 
             // ButtonForSeacrh
             // 
-            this.ButtonForSeacrh.Location = new System.Drawing.Point(426, 17);
+            this.ButtonForSeacrh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.ButtonForSeacrh.Location = new System.Drawing.Point(426, 15);
             this.ButtonForSeacrh.Name = "ButtonForSeacrh";
-            this.ButtonForSeacrh.Size = new System.Drawing.Size(23, 23);
+            this.ButtonForSeacrh.Size = new System.Drawing.Size(62, 23);
             this.ButtonForSeacrh.TabIndex = 16;
+            this.ButtonForSeacrh.Text = "SEARCH";
             this.ButtonForSeacrh.UseVisualStyleBackColor = true;
             this.ButtonForSeacrh.Click += new System.EventHandler(this.ButtonForSeacrh_Click);
             // 
@@ -220,6 +222,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
+            this.BackgroundImage = global::ProjectClient.Properties.Resources.VlibraryLogo64;
             this.ClientSize = new System.Drawing.Size(796, 397);
             this.Controls.Add(this.ButtonForSeacrh);
             this.Controls.Add(this.SearchBar);
@@ -241,6 +244,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.HomeScreenForm_Load);
+            this.Leave += new System.EventHandler(this.HomeScreenForm_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.NextButtonPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviousButtonPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshButton)).EndInit();

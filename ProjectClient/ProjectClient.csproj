@@ -212,5 +212,8 @@
   <ItemGroup>
     <None Include="Resources\Screenshot 2024-03-09 204952.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VlibraryLogo64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

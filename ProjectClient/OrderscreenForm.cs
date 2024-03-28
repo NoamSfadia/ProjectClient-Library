@@ -58,5 +58,10 @@ namespace ProjectClient
         {
             NetHandler.SendMessage("RateForBook:" + BookName + ',' + RatingBar.Value.ToString());
         }
+
+        private void OrderscreenForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

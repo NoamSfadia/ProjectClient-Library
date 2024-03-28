@@ -241,6 +241,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SaddleBrown;
+            this.BackgroundImage = global::ProjectClient.Properties.Resources.VlibraryLogo64;
             this.ClientSize = new System.Drawing.Size(239, 403);
             this.Controls.Add(this.CheckBoxShowPassword);
             this.Controls.Add(this.CapthcaQstLbl);
@@ -257,6 +258,7 @@
             this.Controls.Add(this.CodeTxtBox);
             this.Controls.Add(this.MailTxtBox);
             this.Controls.Add(this.SignUpBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SignUpForm";
             this.Text = "SignUpForm";

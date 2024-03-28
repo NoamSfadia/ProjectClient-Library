@@ -329,6 +329,7 @@ namespace ProjectClient
                         {
                             messageReceived = messageReceived.Remove(0, 15);
                             HomeInstance.Invoke((Action)((() => HomeInstance.ResetBooks())));
+                            HomeInstance.pageNumber = 0;
                             string[] AllBooks = messageReceived.Split('@');
                             for (int i = 0; i < AllBooks.Length; i++)
                             {
@@ -344,6 +345,10 @@ namespace ProjectClient
 
                             SendMessage("getGenresForHome");
                         }
+                        if(messageReceived == "SuccesfulRating")
+                        {
+                            Task.Run(() => { MessageBox.Show("The review has been successfully delivered! Thank you!"); });
+                        }
                         
                     }
                 }
@@ -357,6 +362,12 @@ namespace ProjectClient
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        public static void Disconnect()
+        {
+            SendMessage("Disconnection In proccess");
+            Client.Close();
+            Client.GetStream().Close();
         }
 
     }
