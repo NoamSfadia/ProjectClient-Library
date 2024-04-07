@@ -46,13 +46,15 @@
             this.CapthcaQstLbl = new System.Windows.Forms.Label();
             this.CheckBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ConfirmPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SignUpBtn
             // 
             this.SignUpBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SignUpBtn.Font = new System.Drawing.Font("MingLiU-ExtB", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignUpBtn.Location = new System.Drawing.Point(11, 325);
+            this.SignUpBtn.Location = new System.Drawing.Point(11, 222);
             this.SignUpBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SignUpBtn.Name = "SignUpBtn";
             this.SignUpBtn.Size = new System.Drawing.Size(131, 32);
@@ -63,7 +65,7 @@
             // 
             // MailTxtBox
             // 
-            this.MailTxtBox.Location = new System.Drawing.Point(11, 170);
+            this.MailTxtBox.Location = new System.Drawing.Point(11, 198);
             this.MailTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.MailTxtBox.Name = "MailTxtBox";
             this.MailTxtBox.Size = new System.Drawing.Size(132, 20);
@@ -71,10 +73,10 @@
             // 
             // CodeTxtBox
             // 
-            this.CodeTxtBox.Location = new System.Drawing.Point(11, 223);
+            this.CodeTxtBox.Location = new System.Drawing.Point(187, 67);
             this.CodeTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.CodeTxtBox.Name = "CodeTxtBox";
-            this.CodeTxtBox.Size = new System.Drawing.Size(132, 20);
+            this.CodeTxtBox.Size = new System.Drawing.Size(91, 20);
             this.CodeTxtBox.TabIndex = 2;
             this.CodeTxtBox.Visible = false;
             // 
@@ -115,7 +117,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(11, 152);
+            this.label3.Location = new System.Drawing.Point(11, 177);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 16);
@@ -136,7 +138,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(11, 205);
+            this.label4.Location = new System.Drawing.Point(184, 49);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 16);
@@ -153,7 +155,7 @@
             this.SendCodeBtn.FlatAppearance.BorderSize = 0;
             this.SendCodeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SendCodeBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.SendCodeBtn.Location = new System.Drawing.Point(147, 220);
+            this.SendCodeBtn.Location = new System.Drawing.Point(282, 63);
             this.SendCodeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SendCodeBtn.Name = "SendCodeBtn";
             this.SendCodeBtn.Size = new System.Drawing.Size(41, 24);
@@ -164,10 +166,10 @@
             // 
             // CaptchaTxtBox
             // 
-            this.CaptchaTxtBox.Location = new System.Drawing.Point(11, 301);
+            this.CaptchaTxtBox.Location = new System.Drawing.Point(187, 122);
             this.CaptchaTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.CaptchaTxtBox.Name = "CaptchaTxtBox";
-            this.CaptchaTxtBox.Size = new System.Drawing.Size(132, 20);
+            this.CaptchaTxtBox.Size = new System.Drawing.Size(91, 20);
             this.CaptchaTxtBox.TabIndex = 10;
             this.CaptchaTxtBox.Visible = false;
             // 
@@ -176,7 +178,7 @@
             this.CaptchaLbl.AutoSize = true;
             this.CaptchaLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptchaLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CaptchaLbl.Location = new System.Drawing.Point(11, 259);
+            this.CaptchaLbl.Location = new System.Drawing.Point(184, 89);
             this.CaptchaLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CaptchaLbl.Name = "CaptchaLbl";
             this.CaptchaLbl.Size = new System.Drawing.Size(54, 16);
@@ -193,7 +195,7 @@
             this.SendCaptchaBtn.FlatAppearance.BorderSize = 0;
             this.SendCaptchaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SendCaptchaBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.SendCaptchaBtn.Location = new System.Drawing.Point(147, 298);
+            this.SendCaptchaBtn.Location = new System.Drawing.Point(282, 119);
             this.SendCaptchaBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SendCaptchaBtn.Name = "SendCaptchaBtn";
             this.SendCaptchaBtn.Size = new System.Drawing.Size(41, 24);
@@ -207,7 +209,7 @@
             this.CapthcaQstLbl.AutoSize = true;
             this.CapthcaQstLbl.BackColor = System.Drawing.Color.Silver;
             this.CapthcaQstLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CapthcaQstLbl.Location = new System.Drawing.Point(11, 275);
+            this.CapthcaQstLbl.Location = new System.Drawing.Point(191, 105);
             this.CapthcaQstLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CapthcaQstLbl.Name = "CapthcaQstLbl";
             this.CapthcaQstLbl.Size = new System.Drawing.Size(0, 15);
@@ -234,6 +236,25 @@
             this.ToolTip.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // ConfirmPassword
+            // 
+            this.ConfirmPassword.Location = new System.Drawing.Point(14, 154);
+            this.ConfirmPassword.Name = "ConfirmPassword";
+            this.ConfirmPassword.PasswordChar = '•';
+            this.ConfirmPassword.Size = new System.Drawing.Size(132, 20);
+            this.ConfirmPassword.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(12, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Confirm Password:";
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +263,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SaddleBrown;
             this.BackgroundImage = global::ProjectClient.Properties.Resources.VlibraryLogo64;
-            this.ClientSize = new System.Drawing.Size(239, 403);
+            this.ClientSize = new System.Drawing.Size(317, 259);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ConfirmPassword);
             this.Controls.Add(this.CheckBoxShowPassword);
             this.Controls.Add(this.CapthcaQstLbl);
             this.Controls.Add(this.SendCaptchaBtn);
@@ -286,5 +309,7 @@
         private System.Windows.Forms.Label CapthcaQstLbl;
         private System.Windows.Forms.CheckBox CheckBoxShowPassword;
         private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.TextBox ConfirmPassword;
+        private System.Windows.Forms.Label label5;
     }
 }

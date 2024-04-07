@@ -16,10 +16,15 @@ namespace ProjectClient
     {
         private static string Username;
         private static string BookName;
+        public  string Library;
+        public List<string> Libraries;
+        
         
         public OrderscreenForm(string image, string Summary,string username,string book)
         {
             InitializeComponent();
+            NetHandler.InitializeOrderFormInstance(this);
+
             byte[] bytes = Convert.FromBase64String(image);
             using (MemoryStream memoryStream = new MemoryStream(bytes))
             {
@@ -61,7 +66,69 @@ namespace ProjectClient
 
         private void OrderscreenForm_Load(object sender, EventArgs e)
         {
+            NetHandler.SendMessage("WhatTypeOrder");
+            
+            NetHandler.SendMessage("DemandOrder" + BookName);
+        }
+        /// <summary>
+        /// Opens The Librarian options.
+        /// </summary>
+        private void showLibrarianOptions()
+        {
+            BookQuantityCounter.Visible = true;
+            SendQuantity.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+        }
 
+        private void SendQuantity_Click(object sender, EventArgs e)
+        {
+            NetHandler.SendMessage("Quantity:" + BookName + '/' + BookQuantityCounter.Value + ',' + Library);
+            
+        }
+
+        private void LibrariesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newLibrary = LibrariesComboBox.Text;
+            foreach (string library in Libraries)
+            {
+                string[] libraryAfterSplit = library.Split('/');
+                if (libraryAfterSplit[0].StartsWith(newLibrary))
+                {
+                    if (libraryAfterSplit[1].Equals("Blue"))
+                    {
+                        LibrariesComboBox.ForeColor = Color.Blue;
+                    }
+                    if (libraryAfterSplit[1].Equals("Yellow"))
+                    {
+                        LibrariesComboBox.ForeColor = Color.Gold;
+                    }
+                    if (libraryAfterSplit[1].Equals("Red"))
+                    {
+                        LibrariesComboBox.ForeColor = Color.Red;
+                    }
+                    if (libraryAfterSplit[1].Equals("Green"))
+                    {
+                        LibrariesComboBox.ForeColor= Color.DarkGreen;
+                    }
+
+
+                }
+            }
+        }
+
+        private void ShowLibrarianOptionButton_Click(object sender, EventArgs e)
+        {
+            showLibrarianOptions();
+            NetHandler.SendMessage("WhatLibraryOrderCurrentQuantity" + BookName);
+        }
+        public void ShowLibrarianOptionsButton() 
+        {
+            ShowLibrarianOptionButton.Visible = true;
+        }
+        public void UpdateCurrentLabel(string label)
+        {
+            label5.Text += label;
         }
     }
 }

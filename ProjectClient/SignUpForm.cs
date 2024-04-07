@@ -25,10 +25,15 @@ namespace ProjectClient
 
         private void SignUpBtn_Click(object sender, EventArgs e)
         {
-            
-            UserDetails = UserTxtBox.Text + "#" + PassTxtBox.Text + "#" + MailTxtBox.Text;
-            NetHandler.SendMessage("CheckUserSignUp:" + UserTxtBox.Text);
-            
+            if (PassTxtBox.Text.Equals(ConfirmPassword.Text))
+            {
+                UserDetails = UserTxtBox.Text + "#" + PassTxtBox.Text + "#" + MailTxtBox.Text;
+                NetHandler.SendMessage("CheckUserSignUp:" + UserTxtBox.Text);
+            }
+            else
+            {
+                Task.Run(() => MessageBox.Show("Password and Confirm Password must be the same."));
+            }
         }
 
         private void SendCodeBtn_Click(object sender, EventArgs e)

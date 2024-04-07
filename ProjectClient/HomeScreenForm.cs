@@ -108,11 +108,6 @@ namespace ProjectClient
             }
             
         }
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-            SettingsForm settings = new SettingsForm(username);
-            settings.Show();
-        }
 
         private void SearchByFilterButton_Click(object sender, EventArgs e)
         {
@@ -125,7 +120,7 @@ namespace ProjectClient
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            SettingsForm settings = new SettingsForm(username);
+            SettingsForm settings = new SettingsForm(username, Libraries);
             settings.Show();
         }
 

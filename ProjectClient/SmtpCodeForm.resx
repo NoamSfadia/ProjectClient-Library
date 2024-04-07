@@ -118,40 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SendCodeBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
-        1j/lgkpTBwAN9YJYgIwvvgBZRj2fhf5nBgbVFUyLwJh6PpMqveiHxQIkTCWfAQ05jN0CFAz2GdmWSZac
-        t8ZiKA5Mgc+AGjdgNxQXhqRGkiyTKL6iBUzOf7AbiA+T6DOXvptzw2fd+Y+Mw2be+a9UfRmL4Wi49OIz
-        mYorKlCjcINX7z7Zf/369T86rlr3ELvBaFii9GIh1CjcgBKfSJRdeipTcRa/T8BxUkZ+nBCVaYEuIS11
-        lZJgOAhIllwmOZ9I1p8hrbgBaiKc40l1OTIgtuwi2eVwgK8UpsTlyABoCM76hHyXowGp8quGQIMhyZZa
-        LscGxKB1PNVcPswAAwMAfB0iqKkVqj8AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="SendCaptchaBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAS1JREFUSEtjGJ5AuuyihWTppWjx4gvcUCHqAsnSi0ZA/Fey7NJ/ybKLLyVKLxVL
-        1j/lgkpTBwAN9YJYgIwvvgBZRj2fhf5nBgbVFUyLwJh6PpMqveiHxQIkTCWfAQ05jN0CFAz2GdmWSZac
-        t8ZiKA5Mgc+AGjdgNxQXhqRGkiyTKL6iBUzOf7AbiA+T6DOXvptzw2fd+Y+Mw2be+a9UfRmL4Wi49OIz
-        mYorKlCjcINX7z7Zf/369T86rlr3ELvBaFii9GIh1CjcgBKfSJRdeipTcRa/T8BxUkZ+nBCVaYEuIS11
-        lZJgOAhIllwmOZ9I1p8hrbgBaiKc40l1OTIgtuwi2eVwgK8UpsTlyABoCM76hHyXowGp8quGQIMhyZZa
-        LscGxKB1PNVcPswAAwMAfB0iqKkVqj8AAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="CapthcaQstLbl.ToolTip" xml:space="preserve">
-    <value>You will be presented with a mix of capital letters and numbers in the following text.
-In the text box below, type the sentence provided in the prompt, but in CAPITAL LETTERS.
-Click the "Send" button to submit your answer.
-If you need a different text, click the "Send" button again.</value>
-  </data>
-  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIAAoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA

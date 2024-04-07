@@ -28,27 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BookImageBox = new System.Windows.Forms.PictureBox();
             this.OrderBookButton = new System.Windows.Forms.Button();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookGenreLabel = new System.Windows.Forms.Label();
             this.AuthorLabel = new System.Windows.Forms.Label();
             this.BookRatingLabel = new System.Windows.Forms.Label();
             this.StarLabel = new System.Windows.Forms.Label();
+            this.BookImageBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BookImageBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BookImageBox
-            // 
-            this.BookImageBox.Image = global::ProjectClient.Properties.Resources.camera_not_allowed_no_photography_image_not_available_concept_icon_in_line_style_design_isolated_on_white_background_editable_stroke_vector;
-            this.BookImageBox.Location = new System.Drawing.Point(0, 0);
-            this.BookImageBox.Margin = new System.Windows.Forms.Padding(2);
-            this.BookImageBox.Name = "BookImageBox";
-            this.BookImageBox.Size = new System.Drawing.Size(120, 195);
-            this.BookImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BookImageBox.TabIndex = 0;
-            this.BookImageBox.TabStop = false;
-            this.BookImageBox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // OrderBookButton
             // 
@@ -116,6 +104,18 @@
             this.StarLabel.Text = "«";
             this.StarLabel.Click += new System.EventHandler(this.StarLabel_Click);
             // 
+            // BookImageBox
+            // 
+            this.BookImageBox.Image = global::ProjectClient.Properties.Resources.camera_not_allowed_no_photography_image_not_available_concept_icon_in_line_style_design_isolated_on_white_background_editable_stroke_vector;
+            this.BookImageBox.Location = new System.Drawing.Point(0, 0);
+            this.BookImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.BookImageBox.Name = "BookImageBox";
+            this.BookImageBox.Size = new System.Drawing.Size(120, 195);
+            this.BookImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BookImageBox.TabIndex = 0;
+            this.BookImageBox.TabStop = false;
+            this.BookImageBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // BookPreviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +131,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BookPreviewControl";
             this.Size = new System.Drawing.Size(120, 268);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BookPreviewControl_MouseDoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.BookImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

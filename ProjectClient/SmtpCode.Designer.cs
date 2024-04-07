@@ -28,91 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MailTextBox = new System.Windows.Forms.TextBox();
-            this.MailLabel = new System.Windows.Forms.Label();
             this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.CodeLabel = new System.Windows.Forms.Label();
-            this.SendMailButton = new System.Windows.Forms.Button();
             this.SendCodeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // MailTextBox
-            // 
-            this.MailTextBox.Location = new System.Drawing.Point(3, 29);
-            this.MailTextBox.Name = "MailTextBox";
-            this.MailTextBox.Size = new System.Drawing.Size(144, 22);
-            this.MailTextBox.TabIndex = 0;
-            // 
-            // MailLabel
-            // 
-            this.MailLabel.AutoSize = true;
-            this.MailLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MailLabel.Location = new System.Drawing.Point(3, 10);
-            this.MailLabel.Name = "MailLabel";
-            this.MailLabel.Size = new System.Drawing.Size(69, 16);
-            this.MailLabel.TabIndex = 1;
-            this.MailLabel.Text = "Enter Mail:";
-            // 
             // CodeTextBox
             // 
-            this.CodeTextBox.Location = new System.Drawing.Point(3, 73);
+            this.CodeTextBox.Location = new System.Drawing.Point(0, 15);
+            this.CodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(144, 22);
+            this.CodeTextBox.Size = new System.Drawing.Size(109, 20);
             this.CodeTextBox.TabIndex = 2;
             // 
             // CodeLabel
             // 
             this.CodeLabel.AutoSize = true;
             this.CodeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CodeLabel.Location = new System.Drawing.Point(3, 54);
+            this.CodeLabel.Location = new System.Drawing.Point(-1, 0);
+            this.CodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CodeLabel.Name = "CodeLabel";
-            this.CodeLabel.Size = new System.Drawing.Size(77, 16);
+            this.CodeLabel.Size = new System.Drawing.Size(63, 13);
             this.CodeLabel.TabIndex = 3;
             this.CodeLabel.Text = "Enter Code:";
             // 
-            // SendMailButton
-            // 
-            this.SendMailButton.Location = new System.Drawing.Point(153, 29);
-            this.SendMailButton.Name = "SendMailButton";
-            this.SendMailButton.Size = new System.Drawing.Size(30, 23);
-            this.SendMailButton.TabIndex = 4;
-            this.SendMailButton.UseVisualStyleBackColor = true;
-            this.SendMailButton.Click += new System.EventHandler(this.SendMailButton_Click);
-            // 
             // SendCodeButton
             // 
-            this.SendCodeButton.Location = new System.Drawing.Point(153, 72);
+            this.SendCodeButton.Location = new System.Drawing.Point(113, 15);
+            this.SendCodeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SendCodeButton.Name = "SendCodeButton";
-            this.SendCodeButton.Size = new System.Drawing.Size(30, 23);
+            this.SendCodeButton.Size = new System.Drawing.Size(22, 19);
             this.SendCodeButton.TabIndex = 5;
             this.SendCodeButton.UseVisualStyleBackColor = true;
             this.SendCodeButton.Click += new System.EventHandler(this.SendCodeButton_Click);
             // 
             // SmtpCode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.SendCodeButton);
-            this.Controls.Add(this.SendMailButton);
             this.Controls.Add(this.CodeLabel);
             this.Controls.Add(this.CodeTextBox);
-            this.Controls.Add(this.MailLabel);
-            this.Controls.Add(this.MailTextBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SmtpCode";
-            this.Size = new System.Drawing.Size(188, 106);
+            this.Size = new System.Drawing.Size(141, 43);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox MailTextBox;
-        private System.Windows.Forms.Label MailLabel;
         private System.Windows.Forms.TextBox CodeTextBox;
         private System.Windows.Forms.Label CodeLabel;
-        private System.Windows.Forms.Button SendMailButton;
         private System.Windows.Forms.Button SendCodeButton;
     }
 }

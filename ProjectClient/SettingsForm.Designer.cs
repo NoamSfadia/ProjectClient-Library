@@ -49,6 +49,11 @@
             this.SendSmtpCodeSettings = new System.Windows.Forms.Button();
             this.SmtpTextBox = new System.Windows.Forms.TextBox();
             this.InsertSmtpCode = new System.Windows.Forms.Label();
+            this.UsersComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SetUserButton = new System.Windows.Forms.Button();
+            this.TypesComboBox = new System.Windows.Forms.ComboBox();
+            this.LibriariesComboBox = new System.Windows.Forms.ComboBox();
             this.AccountSettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UploadBookPhotoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -261,6 +266,56 @@
             this.InsertSmtpCode.Text = "Insert Code From Mail:";
             this.InsertSmtpCode.Visible = false;
             // 
+            // UsersComboBox
+            // 
+            this.UsersComboBox.FormattingEnabled = true;
+            this.UsersComboBox.Location = new System.Drawing.Point(396, 56);
+            this.UsersComboBox.Name = "UsersComboBox";
+            this.UsersComboBox.Size = new System.Drawing.Size(121, 21);
+            this.UsersComboBox.TabIndex = 0;
+            this.UsersComboBox.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(393, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Set User As:";
+            this.label1.Visible = false;
+            // 
+            // SetUserButton
+            // 
+            this.SetUserButton.Location = new System.Drawing.Point(523, 73);
+            this.SetUserButton.Name = "SetUserButton";
+            this.SetUserButton.Size = new System.Drawing.Size(35, 20);
+            this.SetUserButton.TabIndex = 2;
+            this.SetUserButton.UseVisualStyleBackColor = true;
+            this.SetUserButton.Visible = false;
+            this.SetUserButton.Click += new System.EventHandler(this.SetUserButton_Click);
+            // 
+            // TypesComboBox
+            // 
+            this.TypesComboBox.FormattingEnabled = true;
+            this.TypesComboBox.Location = new System.Drawing.Point(396, 83);
+            this.TypesComboBox.Name = "TypesComboBox";
+            this.TypesComboBox.Size = new System.Drawing.Size(121, 21);
+            this.TypesComboBox.TabIndex = 17;
+            this.TypesComboBox.Visible = false;
+            this.TypesComboBox.SelectedIndexChanged += new System.EventHandler(this.TypesComboBox_SelectedIndexChanged);
+            // 
+            // LibriariesComboBox
+            // 
+            this.LibriariesComboBox.FormattingEnabled = true;
+            this.LibriariesComboBox.Location = new System.Drawing.Point(396, 111);
+            this.LibriariesComboBox.Name = "LibriariesComboBox";
+            this.LibriariesComboBox.Size = new System.Drawing.Size(121, 21);
+            this.LibriariesComboBox.TabIndex = 18;
+            this.LibriariesComboBox.Visible = false;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,9 +323,14 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(549, 478);
+            this.ClientSize = new System.Drawing.Size(603, 478);
+            this.Controls.Add(this.LibriariesComboBox);
+            this.Controls.Add(this.TypesComboBox);
+            this.Controls.Add(this.SetUserButton);
             this.Controls.Add(this.InsertSmtpCode);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SmtpTextBox);
+            this.Controls.Add(this.UsersComboBox);
             this.Controls.Add(this.SendSmtpCodeSettings);
             this.Controls.Add(this.AccessSettingsLabel);
             this.Controls.Add(this.GenreComboBox);
@@ -313,5 +373,10 @@
         private System.Windows.Forms.Button SendSmtpCodeSettings;
         private System.Windows.Forms.TextBox SmtpTextBox;
         private System.Windows.Forms.Label InsertSmtpCode;
+        private System.Windows.Forms.ComboBox UsersComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SetUserButton;
+        private System.Windows.Forms.ComboBox TypesComboBox;
+        private System.Windows.Forms.ComboBox LibriariesComboBox;
     }
 }

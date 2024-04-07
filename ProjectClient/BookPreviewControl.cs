@@ -46,7 +46,7 @@ namespace ProjectClient
             }
             else 
             {
-                BookImageBox.Image = System.Drawing.Bitmap.FromFile(DefaultBookImage);
+                BookImageBox.Image = Image.FromFile(DefaultBookImage);
             }
         }
         
@@ -72,7 +72,7 @@ namespace ProjectClient
 
         private void BookNameLabel_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void BookGenreLabel_Click(object sender, EventArgs e)
@@ -86,6 +86,11 @@ namespace ProjectClient
         }
 
         private void BookRatingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookPreviewControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
         }

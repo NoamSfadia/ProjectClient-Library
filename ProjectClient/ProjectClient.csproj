@@ -124,6 +124,12 @@
     <Compile Include="SmtpCode.Designer.cs">
       <DependentUpon>SmtpCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="SmtpCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmtpCodeForm.Designer.cs">
+      <DependentUpon>SmtpCodeForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookPreviewControl.resx">
       <DependentUpon>BookPreviewControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SmtpCode.resx">
       <DependentUpon>SmtpCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmtpCodeForm.resx">
+      <DependentUpon>SmtpCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

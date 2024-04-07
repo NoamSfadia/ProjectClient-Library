@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,20 +16,22 @@ namespace ProjectClient
 {
     public partial class SettingsForm : Form
     {
+        private List<string> librariesLocal;
         private string username;
         public bool isUsernameValid = false;
         private string ImageToSend;
+        public string UserType = "Customer";
         private List<string> Genres;
-        public SettingsForm(string Username)
+        public SettingsForm(string Username, List<string> libraries)
         {
             InitializeComponent();
             NetHandler.InitializeSettingsFormInstance(this);
             username = Username;
+            librariesLocal = libraries;
         }
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             NetHandler.SendMessage("What Type"); 
-            
         }
         public void ManagerPanelVisible()
         {
@@ -38,6 +41,20 @@ namespace ProjectClient
             GenreComboBox.Visible = true;
             UploadBookButton.Visible = true;
             BookSummaryTextBox.Visible = true;
+            SetUserButton.Visible = true;
+            label1.Visible = true;
+            UsersComboBox.Visible = true;
+            TypesComboBox.Visible = true;
+            NetHandler.SendMessage("UsersForSettings");
+
+            TypesComboBox.Items.Add("Librarian");
+            TypesComboBox.Items.Add("Customer");
+            if (UserType.Equals("VManager"))
+            {
+                TypesComboBox.Items.Add("Manager");
+                LibriariesComboBox.Visible = true;
+                foreach(string str in librariesLocal) { LibriariesComboBox.Items.Add(str); }
+            }
         }
 
         public void UnlockSettings()
@@ -100,6 +117,14 @@ namespace ProjectClient
                 GenreComboBox.Items.Add(str);
             }
         }
+        public void insertUsers(string[] UsersSpilted)
+        {;
+            List<string> users = new List<string>(UsersSpilted);
+            foreach (string str in users)
+            {
+                UsersComboBox.Items.Add(str);
+            }
+        }
 
         private void UploadBookPhotoPictureBox_Click(object sender, EventArgs e)
         {
@@ -148,6 +173,32 @@ namespace ProjectClient
         private void SendSmtpCodeSettings_Click(object sender, EventArgs e)
         {
             NetHandler.SendMessage("CodeForSettings" + SmtpTextBox.Text);
+        }
+
+        private void ManagerSettingsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TypesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetUserButton_Click(object sender, EventArgs e)
+        {
+            if (UserType.Equals("VManager"))
+            {
+                NetHandler.SendMessage("TypeUpdateLib:" + TypesComboBox.Text + ',' + UsersComboBox.Text + ',' + LibriariesComboBox.Text);
+            }
+            else
+            {
+                NetHandler.SendMessage("TypeUpdate:" + TypesComboBox.Text + ',' + UsersComboBox.Text);
+            }
+            
+            TypesComboBox.ResetText();
+            UsersComboBox.ResetText();
+            LibriariesComboBox.ResetText();
         }
     }
 }

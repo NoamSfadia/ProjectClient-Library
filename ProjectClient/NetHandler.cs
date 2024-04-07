@@ -64,6 +64,7 @@ namespace ProjectClient
         private static SignUpForm SignUpInstance;
         private static HomeScreenForm HomeInstance;
         private static SettingsForm SettingsInstance;
+        private static OrderscreenForm OrderscreenInstance;
 
         public static void BeginRead()
         {
@@ -92,6 +93,10 @@ namespace ProjectClient
         internal static void InitializeSettingsFormInstance(SettingsForm formInstance)
         {
             SettingsInstance = formInstance;
+        }
+        internal static void InitializeOrderFormInstance(OrderscreenForm formInstance)
+        {
+            OrderscreenInstance = formInstance;
         }
 
 
@@ -297,14 +302,50 @@ namespace ProjectClient
 
                         if (messageReceived.StartsWith("UserType:"))
                         {
-                            messageReceived = messageReceived.Remove(0, 9);                        
-                            if(messageReceived.StartsWith("Manager"))
+                            messageReceived = messageReceived.Remove(0, 9);
+                            string UserType = messageReceived.Trim();
+                            SettingsInstance.UserType = UserType;
+                            if (UserType.Equals("Manager") || UserType.Equals("VManager"))
                             {
                                 SettingsInstance.Invoke((Action)(() => SettingsInstance.ManagerPanelVisible()));
                                 SendMessage("GetGenres");
                             }
-                                
                         }
+
+
+                        if(messageReceived.StartsWith("UserTypeOrder:"))
+                        {
+                            string Type = messageReceived.Remove(0, 14).Trim();
+                            if (Type.Equals("Manager") || Type.Equals("Librarian") || Type.Equals("VManager"))
+                            {
+                                OrderscreenInstance.Invoke((Action) (() => OrderscreenInstance.ShowLibrarianOptionsButton()));
+                            }
+                        }
+                        if(messageReceived.StartsWith("OrderLibrary:"))
+                        {
+
+                            string[] strings = messageReceived.Remove(0, 13).Split(',');
+                            string library = strings[0];
+                            string[] bookAndQuantity = strings[1].Split('/');
+                            if(!library.Equals("Does not relate to any library."))
+                            {
+                                OrderscreenInstance.Library = library;
+                            }
+                            OrderscreenInstance.Invoke((Action)(() => OrderscreenInstance.UpdateCurrentLabel(bookAndQuantity[1])));
+                        }
+                        if(messageReceived.StartsWith("ReturnDemandOrder"))
+                        {
+                            string[] AllLibraries = messageReceived.Remove(0,17).Split(',');
+                            OrderscreenInstance.Libraries = AllLibraries.ToList();
+                            foreach(string Library in AllLibraries) 
+                            {
+                                string[] LibraryAfterSpilt = Library.Split('/');
+                                OrderscreenInstance.Invoke((Action)(() => OrderscreenInstance.LibrariesComboBox.Items.Add(LibraryAfterSpilt[0])));
+                            }
+
+                        }
+
+
                         if(messageReceived.StartsWith("UserName:"))
                         {
                             messageReceived = messageReceived.Remove(0, 9);
@@ -349,7 +390,16 @@ namespace ProjectClient
                         {
                             Task.Run(() => { MessageBox.Show("The review has been successfully delivered! Thank you!"); });
                         }
+                        if(messageReceived.StartsWith("UsersForSettings:"))
+                        {
+                            string[] AllUsers = messageReceived.Remove(0, 17).Split(',');
+                            SettingsInstance.Invoke((Action)(() => SettingsInstance.insertUsers(AllUsers)));
+                        }
                         
+                        if(messageReceived.Equals("Confirmed"))
+                        {
+                            Task.Run(() => MessageBox.Show("Confirmed."));
+                        }
                     }
                 }
                 lock (Client.GetStream())
