@@ -130,5 +130,11 @@ namespace ProjectClient
         {
             label5.Text += label;
         }
+
+        private void OrderButton_Click(object sender, EventArgs e)
+        {
+            NetHandler.SendMessage("PlaceOrder" + BookName + ',' + LibrariesComboBox.Text + ',' + LibrariesComboBox.ForeColor.Name);
+            LibrariesComboBox.ResetText();
+        }
     }
 }

@@ -365,6 +365,7 @@ namespace ProjectClient
                         {
                             string Genres = messageReceived.Remove(0, 14);
                             HomeInstance.Invoke((Action)((() => HomeInstance.InsertGenres(Genres))));
+                            SendMessage("CurrentlyReading?");
                         }
                         if(messageReceived.StartsWith("BooksToPreview:"))
                         {
@@ -395,6 +396,10 @@ namespace ProjectClient
                             string[] AllUsers = messageReceived.Remove(0, 17).Split(',');
                             SettingsInstance.Invoke((Action)(() => SettingsInstance.insertUsers(AllUsers)));
                         }
+                        if(messageReceived.StartsWith("CurrentlyReading"))
+                        {
+                            Task.Run(() => { MessageBox.Show("Reading:" + messageReceived.Remove(0, 16)); });
+                        }
                         
                         if(messageReceived.Equals("Confirmed"))
                         {
@@ -417,7 +422,7 @@ namespace ProjectClient
         {
             SendMessage("Disconnection In proccess");
             Client.Close();
-            Client.GetStream().Close();
+            Client.Dispose();
         }
 
     }

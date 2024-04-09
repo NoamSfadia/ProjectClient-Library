@@ -158,5 +158,10 @@ namespace ProjectClient
         {
             NetHandler.SendMessage("CaptchaIn:" + CaptchaTextBox.Text);
         }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NetHandler.Disconnect();
+        }
     }
 }

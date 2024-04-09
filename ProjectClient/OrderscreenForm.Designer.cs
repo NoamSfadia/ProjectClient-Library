@@ -68,7 +68,7 @@
             // RatingBar
             // 
             this.RatingBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RatingBar.Location = new System.Drawing.Point(54, 149);
+            this.RatingBar.Location = new System.Drawing.Point(21, 145);
             this.RatingBar.Maximum = 5;
             this.RatingBar.Name = "RatingBar";
             this.RatingBar.Size = new System.Drawing.Size(125, 45);
@@ -81,7 +81,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(155, 123);
+            this.label1.Location = new System.Drawing.Point(164, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 15);
             this.label1.TabIndex = 7;
@@ -90,7 +90,7 @@
             // 
             this.SendRateButton.BackColor = System.Drawing.Color.Gold;
             this.SendRateButton.ForeColor = System.Drawing.Color.Transparent;
-            this.SendRateButton.Location = new System.Drawing.Point(182, 149);
+            this.SendRateButton.Location = new System.Drawing.Point(195, 149);
             this.SendRateButton.Name = "SendRateButton";
             this.SendRateButton.Size = new System.Drawing.Size(33, 16);
             this.SendRateButton.TabIndex = 8;
@@ -102,7 +102,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(19, 120);
+            this.label2.Location = new System.Drawing.Point(12, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 18);
             this.label2.TabIndex = 9;
@@ -113,7 +113,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Wingdings", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(161, 125);
+            this.label3.Location = new System.Drawing.Point(176, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 14);
             this.label3.TabIndex = 10;
@@ -159,6 +159,7 @@
             this.OrderButton.TabIndex = 11;
             this.OrderButton.Text = "ORDER!";
             this.OrderButton.UseVisualStyleBackColor = true;
+            this.OrderButton.Click += new System.EventHandler(this.OrderButton_Click);
             // 
             // LibrariesComboBox
             // 
